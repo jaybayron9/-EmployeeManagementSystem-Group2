@@ -2,30 +2,30 @@
 include 'connection.php';
 
 
-if (isset($_POST['submit'])){
-    $fullname=$_POST['fullname'];
-    $address=$_POST['address'];
-    $gender=$_POST['gender'];
-    $mobile=$_POST['mobile'];
-    $city=$_POST['city'];
-    $company=$_POST['company'];
-    $postion=$_POST['position'];
-    $email=$_POST['email'];
-    $dept_name=$_POST['department'];
+if (isset($_POST['submit']))
+    {
+        $fullname=$_POST['fullname'];
+        $address=$_POST['address'];
+        $gender=$_POST['gender'];
+        $mobile=$_POST['mobile'];
+        $city=$_POST['city'];
+        $company=$_POST['company'];
+        $postion=$_POST['position'];
+        $email=$_POST['email'];
+        $dept_name=$_POST['department'];
 
 
-   
-   
+       
+       
 
-    $sql = "INSERT INTO employees (fullname,address,gender,mobile,city,company,position,email,department_id)
-    VALUES ('$fullname' ,'$address' , '$gender' , '$mobile' , ' $city' , '$company' , '$postion', '$email', '$dept_name')";
-    $result=mysqli_query($con,$sql);
-   
-    header("location:index.php");
-}
+        $sql = "INSERT INTO employees (fullname,address,gender,mobile,city,company,position,email,department_id)
+        VALUES ('$fullname' ,'$address' , '$gender' , '$mobile' , ' $city' , '$company' , '$postion', '$email', '$dept_name')";
+        $result=mysqli_query($con,$sql);
+       
+        header("location:index.php");
+    }
 
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -42,8 +42,9 @@ if (isset($_POST['submit'])){
 
 <body>
     <center>
-        <H1>Add Employee </H1>
+        <H1>Add Employee</H1>
     </center>
+    <a href="home.php">Home</a>
     <div class="container my-5">
         <form method="post">
             <div class="form-group">

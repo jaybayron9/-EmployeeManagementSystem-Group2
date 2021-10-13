@@ -82,20 +82,6 @@ INSERT INTO `employees` (`employee_id`, `fullname`, `address`, `gender`, `mobile
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
-  `employee_id` int(11) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
-  `date_time_created` datetime NOT NULL DEFAULT current_timestamp(),
-  `date_time_updated` datetime NOT NULL DEFAULT current_timestamp(),
-  `remarks` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
 -- Indexes for dumped tables
 --
 
