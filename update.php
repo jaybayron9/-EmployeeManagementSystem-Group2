@@ -36,7 +36,7 @@ $row=mysqli_fetch_assoc($result);
     `mobile`='$mobile',`city`='$city',`company`='$company',`position`='$position',`email`='$email' where employee_id=$employee_id ";
     $result=mysqli_query($con,$sql);
     
-    header("location:index.php");
+    header("location:home.php");
 }
 
 
