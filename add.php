@@ -22,7 +22,7 @@ if (isset($_POST['submit']))
         VALUES ('$fullname' ,'$address' , '$gender' , '$mobile' , ' $city' , '$company' , '$postion', '$email', '$dept_name')";
         $result=mysqli_query($con,$sql);
        
-        header("location:index.php");
+        header("location:home.php");
     }
 
 ?>
