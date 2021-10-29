@@ -102,13 +102,14 @@
       </div>
 
       </div>
-          <div class="col-7">
+          <div class="col-6">
              <div style="margin-top: 20%; margin-left: 10%;">
         <!--Table-->
 
                   <table class="table table-bordered">
     <thead class="table-dark">
         <th>Employee Name</th>
+
          <th>Position</th>
          <th>Department</th>
            <th>Start Date</th>
@@ -145,13 +146,14 @@
      <td>{{employee.endDate}}</td>
       <td>{{employee.remarks}}</td>
        <td>{{employee.status}}</td>
-       <td><a href="" class="btn btn-primary" ng-click="editEmployee(employee)">Edit</a>
+       <td><a href="" class="btn btn-primary" style="width: 100px;" ng-click="editEmployee(employee)">Edit</a>
 
 
-        <a href="" style="display: {{employee.leave_btn}}" class="btn btn-warning" ng-click="leaveEmployee(employee)">leave</a>
+        <a href="" style="display: {{employee.leave_btn}}; width: 100px;" class="btn btn-warning" ng-click="leaveEmployee(employee)">leave</a>
+         <a href="" style="display: {{employee.leave_btn}}; background-color: red; width: 100px;" class="btn btn-warning" ng-click="deleteEmployee(employee)">Delete</a>
 
 
-        
+        <a href="genegrateCOE.php?id={{employee.employee_id}}" style="width: 100px;" target="_blank" class="btn btn-primary">COE</a></td>
 </tr>
     </tbody>
   </table>
@@ -175,29 +177,30 @@
       </div>
       <div class="modal-body">
 
-        <form method="POST" ng-submit="updateEmployee(employee_fetch)"> 
+        <form method="POST" action="php_sccript/updateEmployee.php"> 
 
 
-              <input type="text" ng-model="employee_fetch.fname" class="form-control my-form-modal" placeholder="Employee First Name" required>
+              <input type="text" name="fname" value="{{employee_fetch.fname}}" class="form-control my-form-modal" placeholder="Employee First Name" required>
+              <input type="hidden" value="{{employee_fetch.employee_id}}" name="eid">
        
-              <input type="text" ng-model="employee_fetch.lname" class="form-control my-form-modal" placeholder="Employee Last Name" required>
+              <input type="text" name="lname" value="{{employee_fetch.lname}}" class="form-control my-form-modal" placeholder="Employee Last Name" required>
 
-               <input type="text" ng-model="employee_fetch.position" class="form-control my-form-modal" placeholder="Employee Position" required>
+               <input type="text" name="position" value="{{employee_fetch.position}}" class="form-control my-form-modal" placeholder="Employee Position" required>
+  
 
-               <select class="form-control my-form-modal" ng-model="employee_fetch.department" required>
+               <select class="form-control my-form-modal" name="department">
+                 <option selected value="{{employee_fetch.department}}">{{employee_fetch.department}}</option>
                 <div data-ng-init="getDepartment()">
-               <option ng-selected="employee_fetch.department" disabled value="">Department</option>
-                 <option ng-repeat="department in department_data" value="{{department.department_id}}">{{department.department}}</option>
+                 <option ng-repeat="department in department_data" value="{{department.department}}">{{department.department}}</option>
                </div>
                </select>
 
-               <input type="text" onfocus="(this.type='date')" name="" class="form-control my-form-modal" placeholder="Employee Start Date" ng-model="employee_fetch.startDate">
+               <input type="text" onfocus="(this.type='date')" name="startDate" class="form-control my-form-modal" placeholder="Employee Start Date" value="{{employee_fetch.startDate}}">
           
-
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" ng-click="closeEditEmp()">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary" name="update">Save changes</button>
       </div>
     </form>
 

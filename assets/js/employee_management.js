@@ -28,6 +28,25 @@ location.reload();
 alert("Cancelled Adding Employee!");	
 }
 
+}
+
+
+$scope.deleteEmployee = function(employee){
+	var delete_warning = confirm("Are you sure you want to delete this employee?");
+
+	if(delete_warning){
+	$http({
+
+		method: 'post',
+		url: 'php_sccript/deleteEmployee.php',
+		data: employee
+
+	}).then(function(){
+	location.reload();
+	});
+	}else{
+	alert("Cancelled!");
+	}
 
 }
 
@@ -43,12 +62,6 @@ url: 'php_sccript/getEmployee.php'
 });
 
 }
-
-
-
-
-
-
 
 
 
@@ -139,32 +152,6 @@ $scope.editEmployee = function(employee){
 
 $scope.closeEditEmp = function(){
 	$("#editEmployee").modal("hide");
-}
-
-
-
-$scope.updateEmployee = function(employee_fetch){
-
-
-	var update_employee_warning = confirm("Are you sure you want to update the employee details?");
-	if(update_employee_warning){
-
-			$http({
-	method: 'post',
-	url: 'php_sccript/updateEmployee.php',
-	data: employee_fetch
-
-	}).then(function(){
-	location.reload();
-	});
-
-	}else{
-
-		alert("Cancelled Updating!");
-
-	}
-
-
 }
 
 

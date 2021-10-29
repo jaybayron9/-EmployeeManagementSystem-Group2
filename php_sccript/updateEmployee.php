@@ -2,17 +2,36 @@
 include("../db/db.php");
 
 
-$form_data = json_decode(file_get_contents("php://input"));
-$fname = $form_data->fname;
-$lname = $form_data->lname;
-$position = $form_data->position;
-$startDate = $form_data->startDate;
-$department = $form_data->department;
-$eid = $form_data->employee_id;
+if(isset($_POST['update'])){
 
 
-$addEmployee = mysqli_query($web_db, "UPDATE employee_tbl set employee_fname = '$fname', employee_lname = '$lname', employee_position = '$position', employee_startDate = '$startDate', department_id = '$department' where employee_id = '$eid'");
 
+$fname = $_POST['fname'];
+$lname = $_POST['lname'];
+$position = $_POST['position'];
+$startDate = $_POST['startDate'];
+$department = $_POST['department'];
+$eid = $_POST['eid'];
+
+
+
+$getDepartment = mysqli_query($web_db, "SELECT * from department_tbl where department_name = '$department'");
+
+$department_data = mysqli_fetch_array($getDepartment);
+
+
+$department_id = $department_data['department_id'];
+
+
+$addEmployee = mysqli_query($web_db, "UPDATE employee_tbl set employee_fname = '$fname', employee_lname = '$lname', employee_position = '$position', employee_startDate = '$startDate', department_id = '$department_id' where employee_id = '$eid'");
+
+
+
+header("location: ../dashboard.php");
+
+
+
+}
 
 
 
