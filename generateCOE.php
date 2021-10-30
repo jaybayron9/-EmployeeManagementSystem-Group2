@@ -67,7 +67,7 @@ Issued this <?php echo date("jS F, Y", strtotime(date("Y-m-d"))); ?>
 </center>
 <br><br><br>
 <div style="position: absolute; margin-left: 65%;">
-<p>____________________</p><p>Signature</p><br>
+<p>____________________</p><p>Employee Signature</p><br>
 </div>
 <br><br><br><br><br><br><br><br>
 
