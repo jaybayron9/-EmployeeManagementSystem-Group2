@@ -77,9 +77,9 @@
     <!-- Begin page content -->
     <main role="main" class="container">
       <div class="row">
-      <div class="col-5">
+      <div class="col-12 w-25">
         <!--Form-->
-        <div style="margin-top: 20%">
+        <div style="margin-top: 30%">
           <h3 class="my-header">Add Department</h3>
         <form method="POST" ng-submit="addDepartment(department_form)">
 
@@ -95,19 +95,20 @@
 
       </div>
     </div>
-          <div class="col-5">
-             <div style="margin-top: 20%; margin-left: 10%;">
+    <div class="container mt-5">
+          
+
         <!--Table-->
           <h3>{{department_title}}</h3><p><a href="" ng-click="getArchiveDepartment()" style="display: {{archive_link}}">Click here to see Archive Department</a>
-
+<div class="col-10 mx-auto" >
             <a href="" ng-click="getDepartment()" style="display: {{active_link}}">Click here to see Active Department</a></p>
           <table class="table table-bordered">
-    <thead class="table-dark">
+        <thead class="table-dark text-center">
         <th>Department</th>
          <th>Description</th>
          <th>Action</th>
     </thead>
-    <tbody>
+    <tbody class="text-center">
       <div data-ng-init="getDepartment()">
       <tr ng-repeat="department_inf in department_data">
 
@@ -115,9 +116,9 @@
         <td>{{department_inf.description}}</td>
          <td>
 
-          <a href="" class="btn btn-primary" ng-click="editDepartment(department_inf)" style="display: {{department_inf.edit}}">Edit</a>
+          <a href="" class="btn btn-info" ng-click="editDepartment(department_inf)" style="display: {{department_inf.edit}} width: 100px; height: 35px;">Edit</a>
 
-          <a href="" class="btn btn-warning" style="display: {{department_inf.archive}}" ng-click="archiveDepartment(department_inf)">Archive</a>
+          <a href="" class="btn btn-secondary;" style="display: {{department_inf.archive}} width: 100px; height: 35px; background-color: pink;" ng-click="archiveDepartment(department_inf)">Archive</a>
 
           <a href="" class="btn btn-warning" style="display: {{department_inf.active}}" ng-click="activateDepartment(department_inf)">Re-activate</a>
 
@@ -129,8 +130,7 @@
       
     </tbody>
   </table>
-
-
+</div>
 
   <div class="modal fade" id="editDepartment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-md" role="document">

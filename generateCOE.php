@@ -40,7 +40,8 @@ window.close();
 
 			<img src="assets/logo.png" width="400">
 
-		<h1>Certificate of Employment</h1></center>
+		<h1>Certificate of Employment</h1>
+	</center>
 	<br><br><br>
 <center>
 This is to Certify that <b><?php echo $fullname; ?></b> is an employee of this company.<br>

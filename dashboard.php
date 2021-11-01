@@ -55,7 +55,7 @@
     <!-- Begin page content -->
     <main role="main" class="container">
       <div class="row">
-      <div class="col-4">
+      <div class="col-12 w-25">
         <!--Form-->
         <div style="margin-top: 30%">
           <h3 class="my-header">Add Employee</h3>
@@ -82,8 +82,7 @@
       </div>
 
       </div>
-          <div class="col-6">
-             <div style="margin-top: 20%; margin-left: 10%;">
+          <div class="col-12">
         <!--Table-->
 
                   <table class="table table-bordered">
@@ -126,17 +125,18 @@
      <td>{{employee.endDate}}</td>
       <td>{{employee.remarks}}</td>
        <td>{{employee.status}}</td>
-       <td><a href="" class="btn btn-primary" style="width: 100px;" ng-click="editEmployee(employee)">Edit</a>
+       <td><a href="" class="btn btn-secondary" style="width: 100px; height: 35px;" ng-click="editEmployee(employee)">Edit</a>
 
 
-        <a href="" style="display: {{employee.leave_btn}}; width: 100px;" class="btn btn-warning" ng-click="leaveEmployee(employee)">leave</a>
-         <a href="" style="display: {{employee.leave_btn}}; background-color: red; width: 100px;" class="btn btn-warning" ng-click="deleteEmployee(employee)">Delete</a>
+        <a href="" style="display: {{employee.leave_btn}}; width: 100px; height: 35px;" class="btn btn-warning my-2" ng-click="leaveEmployee(employee)">Leave</a>
+         <a href="" style="display: {{employee.leave_btn}}; background-color: pink; width: 100px; height: 35px;" class="btn btn-light" ng-click="deleteEmployee(employee)">Delete</a>
 
 
-        <a href="generateCOE.php?id={{employee.employee_id}}" style="width: 100px;" target="_blank" class="btn btn-primary">COE</a></td>
+        <a href="generateCOE.php?id={{employee.employee_id}}" style="width: 100px; height: 35px;" target="_blank" class="btn btn-info my-2">COE</a></td>
 </tr>
     </tbody>
   </table>
+
 
 
 
