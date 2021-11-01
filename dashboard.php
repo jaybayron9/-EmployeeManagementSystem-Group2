@@ -9,6 +9,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/dashboard.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="assets/css/sticky-footer-navbar.css" rel="stylesheet">
@@ -36,40 +37,19 @@
               <a class="nav-link" href="department_dashboard.php">Department</a>
             </li>
           </ul>
-          <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" ng-keyup="liveSearch(employee_form)" ng-model="employee_form.employee">
-          
+          <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item">
+            <form class="search-form d-flex my-2">
+            <input class="form-control-sm" type="text" placeholder="Search" aria-label="Search" ng-keyup="liveSearch(employee_form)" ng-model="employee_form.employee">
+            <button class="btn btn-secondary btn-sm">Search</button>
           </form>
-        </div> <ul class="navbar-nav mr-auto">
+          </li>
            <li class="nav-item active">
         <a href="logout.php" class="float-right nav-link">logout</a>
       </li>
     </ul>
       </div>
       </nav>
-      <style type="text/css">
-        .my-form{
-          margin: 3%;
-          border: 1px solid green;
-        }
-            .my-form-modal{
-          margin: 1%;
-          border: 1px solid green;
-          width: 98%;
-        }
-         .my-header{
-          margin: 3%;
-        }
-             .my-label{
-          margin-left: 3%;
-        }
-         .my-btn{
-          margin: 3%;
-        }
-          .my-btn > hover{
-          margin: 3%;
-        }
-      </style>
     </header>
 
     <!-- Begin page content -->
@@ -82,18 +62,18 @@
         <form method="POST" ng-submit="addEmployee(employee_form)">
 
               
-              <input type="text" ng-model="employee_form.fname" class="form-control my-form" placeholder="Employee First Name" required>
+              <input type="text" ng-model="employee_form.fname" class="form-control my-form mb-3 border-success" placeholder="Employee First Name" required>
        
-              <input type="text" ng-model="employee_form.lname" class="form-control my-form" placeholder="Employee Last Name" required>
+              <input type="text" ng-model="employee_form.lname" class="form-control my-form mb-3 border-success" placeholder="Employee Last Name" required>
 
-               <input type="text" ng-model="employee_form.position" class="form-control my-form" placeholder="Employee Position" required>
+               <input type="text" ng-model="employee_form.position" class="form-control my-form mb-3 border-success" placeholder="Employee Position" required>
 
-               <select class="form-control my-form" name="" data-ng-init="getDepartment()" ng-model="employee_form.department" required>
+               <select class="form-control my-form mb-3 border-success" name="" data-ng-init="getDepartment()" ng-model="employee_form.department" required>
                  <option selected disabled value="">Department</option>
                  <option ng-repeat="department in department_data" value="{{department.department_id}}">{{department.department}}</option>
                </select>
 
-               <input type="text" onfocus="(this.type='date')" name="" class="form-control my-form" placeholder="Employee Start Date" ng-model="employee_form.startDate">
+               <input type="text" onfocus="(this.type='date')" name="" class="form-control my-form mb-3 border-success" placeholder="Employee Start Date" ng-model="employee_form.startDate">
 
                <button type="submit" class="btn btn-success my-btn">Add Employee</button>
      
@@ -107,7 +87,7 @@
         <!--Table-->
 
                   <table class="table table-bordered">
-    <thead class="table-dark">
+    <thead class="table-primary">
         <th>Employee Name</th>
 
          <th>Position</th>
