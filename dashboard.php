@@ -9,7 +9,6 @@
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/css/dashboard.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="assets/css/sticky-footer-navbar.css" rel="stylesheet">
@@ -37,43 +36,64 @@
               <a class="nav-link" href="department_dashboard.php">Department</a>
             </li>
           </ul>
-          <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item">
-            <form class="search-form d-flex my-2">
-            <input class="form-control-sm" type="text" placeholder="Search" aria-label="Search" ng-keyup="liveSearch(employee_form)" ng-model="employee_form.employee">
-            <button class="btn btn-secondary btn-sm">Search</button>
+          <form class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" ng-keyup="liveSearch(employee_form)" ng-model="employee_form.employee">
+          
           </form>
-          </li>
+        </div> <ul class="navbar-nav mr-auto">
            <li class="nav-item active">
         <a href="logout.php" class="float-right nav-link">logout</a>
       </li>
     </ul>
       </div>
       </nav>
+      <style type="text/css">
+        .my-form{
+          margin: 3%;
+          border: 1px solid green;
+        }
+            .my-form-modal{
+          margin: 1%;
+          border: 1px solid green;
+          width: 98%;
+        }
+         .my-header{
+          margin: 3%;
+        }
+             .my-label{
+          margin-left: 3%;
+        }
+         .my-btn{
+          margin: 3%;
+        }
+          .my-btn > hover{
+          margin: 3%;
+        }
+      </style>
     </header>
 
     <!-- Begin page content -->
     <main role="main" class="container">
       <div class="row">
-      <div class="col-12 w-25">
+      <div class="col-4">
         <!--Form-->
         <div style="margin-top: 30%">
           <h3 class="my-header">Add Employee</h3>
         <form method="POST" ng-submit="addEmployee(employee_form)">
 
               
-              <input type="text" ng-model="employee_form.fname" class="form-control my-form mb-3 border-success" placeholder="Employee First Name" required>
+              <input type="text" ng-model="employee_form.fname" class="form-control my-form" placeholder="Employee First Name" required>
        
-              <input type="text" ng-model="employee_form.lname" class="form-control my-form mb-3 border-success" placeholder="Employee Last Name" required>
+              <input type="text" ng-model="employee_form.lname" class="form-control my-form" placeholder="Employee Last Name" required>
 
-               <input type="text" ng-model="employee_form.position" class="form-control my-form mb-3 border-success" placeholder="Employee Position" required>
+               <input type="text" ng-model="employee_form.position" class="form-control my-form" placeholder="Employee Position" required>
 
-               <select class="form-control my-form mb-3 border-success" name="" data-ng-init="getDepartment()" ng-model="employee_form.department" required>
+               <select class="form-control my-form" name="" data-ng-init="getDepartment()" ng-model="employee_form.department" required>
                  <option selected disabled value="">Department</option>
                  <option ng-repeat="department in department_data" value="{{department.department_id}}">{{department.department}}</option>
                </select>
 
-               <input type="text" onfocus="(this.type='date')" name="" class="form-control my-form mb-3 border-success" placeholder="Employee Start Date" ng-model="employee_form.startDate">
+               <input type="text" onfocus="(this.type='date')" name="" class="form-control my-form" placeholder="Employee Start Date" ng-model="employee_form.startDate">
 
                <button type="submit" class="btn btn-success my-btn">Add Employee</button>
      
@@ -82,11 +102,12 @@
       </div>
 
       </div>
-          <div class="col-12">
+          <div class="col-6">
+             <div style="margin-top: 20%; margin-left: 10%;">
         <!--Table-->
 
                   <table class="table table-bordered">
-    <thead class="table-primary">
+    <thead class="table-dark">
         <th>Employee Name</th>
 
          <th>Position</th>
@@ -125,18 +146,17 @@
      <td>{{employee.endDate}}</td>
       <td>{{employee.remarks}}</td>
        <td>{{employee.status}}</td>
-       <td><a href="" class="btn btn-secondary" style="width: 100px; height: 35px;" ng-click="editEmployee(employee)">Edit</a>
+       <td><a href="" class="btn btn-success" style="width: 100px;" ng-click="editEmployee(employee)">Edit</a>
 
 
-        <a href="" style="display: {{employee.leave_btn}}; width: 100px; height: 35px;" class="btn btn-warning my-2" ng-click="leaveEmployee(employee)">Leave</a>
-         <a href="" style="display: {{employee.leave_btn}}; background-color: pink; width: 100px; height: 35px;" class="btn btn-light" ng-click="deleteEmployee(employee)">Delete</a>
+        <a href="" style="display: {{employee.leave_btn}}; width: 100px;" class="btn btn-warning" ng-click="leaveEmployee(employee)">leave</a>
+         <a href="" style="display: {{employee.leave_btn}}; background-color: red; width: 100px;" class="btn btn-warning" ng-click="deleteEmployee(employee)">Delete</a>
 
 
-        <a href="generateCOE.php?id={{employee.employee_id}}" style="width: 100px; height: 35px;" target="_blank" class="btn btn-info my-2">COE</a></td>
+        <a href="genegrateCOE.php?id={{employee.employee_id}}" style="width: 100px;" target="_blank" class="btn btn-primary">COE</a></td>
 </tr>
     </tbody>
   </table>
-
 
 
 
