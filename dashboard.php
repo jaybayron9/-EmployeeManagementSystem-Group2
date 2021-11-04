@@ -146,14 +146,14 @@
      <td>{{employee.endDate}}</td>
       <td>{{employee.remarks}}</td>
        <td>{{employee.status}}</td>
-       <td><a href="" class="btn btn-success" style="width: 100px;" ng-click="editEmployee(employee)">Edit</a>
+       <td><a href="" class="btn btn-warning" style="width: 100px;" ng-click="editEmployee(employee)">Edit</a>
 
 
-        <a href="" style="display: {{employee.leave_btn}}; width: 100px;" class="btn btn-warning" ng-click="leaveEmployee(employee)">leave</a>
+        <a href="" style="display: {{employee.leave_btn}}; width: 100px;" class="btn btn-success" ng-click="leaveEmployee(employee)">leave</a>
          <a href="" style="display: {{employee.leave_btn}}; background-color: red; width: 100px;" class="btn btn-warning" ng-click="deleteEmployee(employee)">Delete</a>
 
 
-        <a href="genegrateCOE.php?id={{employee.employee_id}}" style="width: 100px;" target="_blank" class="btn btn-primary">COE</a></td>
+        <a href="generateCOE.php?id={{employee.employee_id}}" style="width: 100px;" target="_blank" class="btn btn-primary">COE</a></td>
 </tr>
     </tbody>
   </table>
