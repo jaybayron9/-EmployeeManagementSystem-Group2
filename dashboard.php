@@ -150,7 +150,7 @@
 
 
         <a href="" style="display: {{employee.leave_btn}}; width: 100px;" class="btn btn-outline-warning mt-2" ng-click="leaveEmployee(employee)">leave</a>
-         <a href="" style="display: {{employee.leave_btn}}; background-color: none; width: 100px;" class="btn btn-outline-primary mt-2" ng-click="deleteEmployee(employee)">Delete</a>
+         <a href="" style="display: {{employee.delete_btn}}; background-color: none; width: 100px;" class="btn btn-outline-primary mt-2" ng-click="deleteEmployee(employee)">Delete</a>
 
 
         <a href="generateCOE.php?id={{employee.employee_id}}" style="width: 100px;" target="_blank" class="btn btn-outline-info mt-2">COE</a></td>
