@@ -36,7 +36,7 @@
               <a class="nav-link" href="department_dashboard.php">Department</a>
             </li>
           </ul>
-          <form class="form-inline mt-2 mt-md-0">
+          <form class="form-inline my-3 ms-auto">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" ng-keyup="liveSearch(employee_form)" ng-model="employee_form.employee">
           
           </form>
@@ -102,8 +102,8 @@
       </div>
 
       </div>
-          <div class="col-6">
-             <div style="margin-top: 20%; margin-left: 10%;">
+          <div class="col-xs-15 mb-5">
+             <div style="margin-top: 5%; margin-left: 2%;">
         <!--Table-->
 
                   <table class="table table-bordered">
@@ -146,14 +146,14 @@
      <td>{{employee.endDate}}</td>
       <td>{{employee.remarks}}</td>
        <td>{{employee.status}}</td>
-       <td><a href="" class="btn btn-success" style="width: 100px;" ng-click="editEmployee(employee)">Edit</a>
+       <td><a href="" class="btn btn-outline-success" style="width: 100px;" ng-click="editEmployee(employee)">Edit</a>
 
 
-        <a href="" style="display: {{employee.leave_btn}}; width: 100px;" class="btn btn-warning" ng-click="leaveEmployee(employee)">leave</a>
-         <a href="" style="display: {{employee.leave_btn}}; background-color: red; width: 100px;" class="btn btn-warning" ng-click="deleteEmployee(employee)">Delete</a>
+        <a href="" style="display: {{employee.leave_btn}}; width: 100px;" class="btn btn-outline-warning mt-2" ng-click="leaveEmployee(employee)">leave</a>
+         <a href="" style="display: {{employee.leave_btn}}; background-color: none; width: 100px;" class="btn btn-outline-primary mt-2" ng-click="deleteEmployee(employee)">Delete</a>
 
 
-        <a href="genegrateCOE.php?id={{employee.employee_id}}" style="width: 100px;" target="_blank" class="btn btn-primary">COE</a></td>
+        <a href="generateCOE.php?id={{employee.employee_id}}" style="width: 100px;" target="_blank" class="btn btn-outline-info mt-2">COE</a></td>
 </tr>
     </tbody>
   </table>
