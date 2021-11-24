@@ -1,0 +1,21 @@
+.my-form{
+margin: 3%;
+border: 1px solid green;
+}
+.my-form-modal{
+margin: 1%;
+border: 1px solid green;
+width: 98%;
+}
+.my-header{
+margin: 3%;
+}
+.my-label{
+margin-left: 3%;
+}
+.my-btn{
+margin: 3%;
+}
+.my-btn > hover{
+margin: 3%;
+}
