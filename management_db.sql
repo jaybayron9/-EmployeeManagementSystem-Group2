@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2021 at 04:44 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 7.3.28
+-- Generation Time: Nov 24, 2021 at 07:07 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `management_db`
 --
+CREATE DATABASE IF NOT EXISTS `management_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `management_db`;
 
 -- --------------------------------------------------------
 
@@ -30,15 +32,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin_tbl` (
   `admin_id` int(11) NOT NULL,
   `admin_username` text NOT NULL DEFAULT '',
-  `admin_password` text NOT NULL
+  `admin_password` text NOT NULL,
+  `date_time_created` date NOT NULL DEFAULT current_timestamp(),
+  `date_time_updated` date NOT NULL DEFAULT current_timestamp(),
+  `remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin_tbl`
 --
 
-INSERT INTO `admin_tbl` (`admin_id`, `admin_username`, `admin_password`) VALUES
-(1, 'admin123', 'password123');
+INSERT INTO `admin_tbl` (`admin_id`, `admin_username`, `admin_password`, `date_time_created`, `date_time_updated`, `remarks`) VALUES
+(1, 'admin123', 'password123', '2021-11-25', '2021-11-25', '');
 
 -- --------------------------------------------------------
 
@@ -50,18 +55,21 @@ CREATE TABLE `department_tbl` (
   `department_id` int(11) NOT NULL,
   `department_name` text NOT NULL,
   `department_description` text NOT NULL,
-  `department_status` text NOT NULL DEFAULT 'ACTIVE'
+  `department_status` text NOT NULL DEFAULT 'ACTIVE',
+  `date_time_created` date NOT NULL DEFAULT current_timestamp(),
+  `date_time_updated` date NOT NULL DEFAULT current_timestamp(),
+  `remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `department_tbl`
 --
 
-INSERT INTO `department_tbl` (`department_id`, `department_name`, `department_description`, `department_status`) VALUES
-(8, 'Finance Department', 'Some Department', 'ACTIVE'),
-(9, 'IT Department', 'IT Department', 'ACTIVE'),
-(10, 'HR Department', 'HR Department', 'ACTIVE'),
-(11, 'Reservation Department', 'Service Reservation', 'ARCHIVE');
+INSERT INTO `department_tbl` (`department_id`, `department_name`, `department_description`, `department_status`, `date_time_created`, `date_time_updated`, `remarks`) VALUES
+(1, 'Finance', 'Finance Department', 'ACTIVE', '2021-11-25', '2021-11-25', ''),
+(2, 'Infomation Technology', 'IT Department', 'ACTIVE', '2021-11-25', '2021-11-25', ''),
+(3, 'Human Resources', 'HR Department', 'ACTIVE', '2021-11-25', '2021-11-25', ''),
+(4, 'Reservation', 'Service Reservation', 'ARCHIVE', '2021-11-25', '2021-11-25', '');
 
 -- --------------------------------------------------------
 
@@ -78,16 +86,11 @@ CREATE TABLE `employee_tbl` (
   `employee_startDate` date NOT NULL,
   `employee_endDate` date NOT NULL,
   `employee_position` text NOT NULL,
-  `employee_remarks` text NOT NULL
+  `employee_remarks` text NOT NULL,
+  `date_time_created` date NOT NULL DEFAULT current_timestamp(),
+  `date_time_updated` date NOT NULL DEFAULT current_timestamp(),
+  `remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `employee_tbl`
---
-
-INSERT INTO `employee_tbl` (`employee_id`, `employee_fname`, `employee_lname`, `department_id`, `employee_status`, `employee_startDate`, `employee_endDate`, `employee_position`, `employee_remarks`) VALUES
-(1, 'Cedric', 'Samonte', 10, 'RESIGNED', '1997-05-03', '2021-10-23', 'Software Engineer', 'Resigned'),
-(7, 'John Cedric', 'Samonte', 10, 'EMPLOYED', '2021-10-22', '0000-00-00', 'Software Developer', '');
 
 --
 -- Indexes for dumped tables
@@ -125,13 +128,13 @@ ALTER TABLE `admin_tbl`
 -- AUTO_INCREMENT for table `department_tbl`
 --
 ALTER TABLE `department_tbl`
-  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `employee_tbl`
 --
 ALTER TABLE `employee_tbl`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
