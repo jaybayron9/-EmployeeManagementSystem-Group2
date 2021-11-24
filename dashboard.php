@@ -82,18 +82,18 @@
         <form method="POST" ng-submit="addEmployee(employee_form)">
 
               
-              <input type="text" ng-model="employee_form.fname" class="form-control my-form" placeholder="Employee First Name" required>
+              <input type="text" ng-model="employee_form.fname" class="form-control my-form" placeholder="First Name" required>
        
-              <input type="text" ng-model="employee_form.lname" class="form-control my-form" placeholder="Employee Last Name" required>
+              <input type="text" ng-model="employee_form.lname" class="form-control my-form" placeholder="Last Name" required>
 
-               <input type="text" ng-model="employee_form.position" class="form-control my-form" placeholder="Employee Position" required>
+               <input type="text" ng-model="employee_form.position" class="form-control my-form" placeholder="Position" required>
 
                <select class="form-control my-form" name="" data-ng-init="getDepartment()" ng-model="employee_form.department" required>
                  <option selected disabled value="">Department</option>
                  <option ng-repeat="department in department_data" value="{{department.department_id}}">{{department.department}}</option>
                </select>
 
-               <input type="text" onfocus="(this.type='date')" name="" class="form-control my-form" placeholder="Employee Start Date" ng-model="employee_form.startDate">
+               <input type="text" onfocus="(this.type='date')" name="" class="form-control my-form" placeholder="Start Date" ng-model="employee_form.startDate">
 
                <button type="submit" class="btn btn-success my-btn">Add Employee</button>
      
@@ -180,21 +180,22 @@
         <form method="POST" action="php_sccript/updateEmployee.php"> 
 
 
+              <label>First Name:</label>
               <input type="text" name="fname" value="{{employee_fetch.fname}}" class="form-control my-form-modal" placeholder="Employee First Name" required>
+              <label>Last Name:</label>
               <input type="hidden" value="{{employee_fetch.employee_id}}" name="eid">
-       
               <input type="text" name="lname" value="{{employee_fetch.lname}}" class="form-control my-form-modal" placeholder="Employee Last Name" required>
-
+              <label>Position:</label>
                <input type="text" name="position" value="{{employee_fetch.position}}" class="form-control my-form-modal" placeholder="Employee Position" required>
   
-
+              <label>Department:</label>
                <select class="form-control my-form-modal" name="department">
                  <option selected value="{{employee_fetch.department}}">{{employee_fetch.department}}</option>
                 <div data-ng-init="getDepartment()">
                  <option ng-repeat="department in department_data" value="{{department.department}}">{{department.department}}</option>
                </div>
                </select>
-
+               <label>Date Started:</label>
                <input type="text" onfocus="(this.type='date')" name="startDate" class="form-control my-form-modal" placeholder="Employee Start Date" value="{{employee_fetch.startDate}}">
           
 
