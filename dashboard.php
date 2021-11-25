@@ -10,6 +10,7 @@
    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
    <!-- Custom styles for this template -->
+   <link rel="stylesheet" type="text/css" href="assets/css/btnsearch.css">
    <link rel="stylesheet" type="text/css" href="assets/css/ds.css">
    <link href="assets/css/sticky-footer-navbar.css" rel="stylesheet">
    <script src="assets/js/angular.js"></script>
@@ -35,9 +36,6 @@
                         <a class="nav-link" href="department_dashboard.php">Department</a>
                      </li>
                   </ul>
-                  <form class="form-inline my-3 ms-auto">
-                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" ng-keyup="liveSearch(employee_form)" ng-model="employee_form.employee">
-                  </form>
                </div> <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
                      <a href="logout.php" class="float-right nav-link">logout</a>
@@ -50,55 +48,66 @@
       <!-- Begin page content -->
       <main role="main" class="container">
          <div class="row">
-            <div class="col-4">
-               <!--Form-->
-               <div style="margin-top: 30%">
-                  <a class="btn btn-success my-btn" href="addemp.php">Add Employee</a>
+            <div class="col-xs-15 mb-5">
+               <div style="margin-top: 13%; margin-left: 2%;">
+                  <form action="addemp.php">
+                     <button class="addemp" href="addemp.php">Add Employee</button>
+                  </form>
+                  <form class="formtwo">
+                     <input class="searchbox" type="text" placeholder="Enter Employee Name" aria-label="Search" ng-keyup="liveSearch(employee_form)" ng-model="employee_form.employee">
+                  </form>
+
+                  <!--Table-->
+                  <table class="table table-bordered">
+                     <thead class="table-dark">
+                        <th><center>Employee Name</center></th>
+                        <th><center>Position</center></th>
+                        <th><center>Department</center></th>
+                        <th><center>Start Date</center></th>
+                        <th><center>End Date</center></th>
+                        <th><center>Remarks</center></th>
+                        <th> 
+                           <select ng-change="seeEmployeeViaStatus(employee_form)" ng-model="employee_form.employee_status">
+                              <option value="" selected disabled>Employment Status</option>
+                              <option value="EMPLOYED"> EMPLOYED</option>
+                              <option value="RESIGNED">RESIGNED</option>
+                              <option value="END OF CONTRACT"> END OF CONTRACT</option>
+                                 <option value="TERMINATED">TERMINATED</option>
+                             </select>
+                        </th>
+                        <th><center>Action</center></th>
+                     </thead>
+                     <tbody data-ng-init="getEmployee()">
+                        <tr ng-repeat="employee in employee_data">
+                           <td>{{employee.fullname}}</td>
+                           <td>{{employee.position}}</td>
+                           <td>{{employee.department}}</td>
+                           <td>{{employee.startDate}}</td>
+                           <td>{{employee.endDate}}</td>
+                           <td>{{employee.remarks}}</td>
+                           <td>{{employee.status}}</td>
+                           <td>
+                              <center>
+                                 <a href="" class="btnAction btnUpdate" style="width: 100px;" ng-click="editEmployee(employee)">Edit&nbsp;&#9998;</a>
+                              </center>
+                              <center>
+                                 <a href="" class="btnAction btnleave" style="display: {{employee.leave_btn}}; width: 100px;"  ng-click="leaveEmployee(employee)">Leave&nbsp;&#10149;</a>
+                              </center>
+
+                               <!-- GENERATE COE -->
+                              <center>
+                                 <a href="generateCOE.php?id={{employee.employee_id}}" class="btnAction btncoe" style="width: 100px;" target="_blank" >C.O.E&nbsp;&#9993;</a>
+                              </center>
+                              <center>
+                                 <a href="" class="btnAction btnDelete" style="display: {{employee.delete_btn}}; background-color: none; width: 100px;" ng-click="deleteEmployee(employee)">Del&nbsp;&#10006;</a>
+                              </center>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
                </div>
             </div>
-            <div class="col-xs-15 mb-5">
-               <div style="margin-top: 5%; margin-left: 2%;">
-
-               <!--Table-->
-               <table class="table table-bordered">
-                  <thead class="table-dark">
-                     <th>Employee Name</th>
-                     <th>Position</th>
-                     <th>Department</th>
-                     <th>Start Date</th>
-                     <th>End Date</th>
-                     <th>Remarks</th>
-                     <th> 
-                        <select ng-change="seeEmployeeViaStatus(employee_form)" ng-model="employee_form.employee_status">
-                           <option value="" selected disabled>Employment Status</option>
-                           <option value="EMPLOYED"> EMPLOYED</option>
-                           <option value="RESIGNED">RESIGNED</option>
-                           <option value="END OF CONTRACT"> END OF CONTRACT</option>
-                              <option value="TERMINATED">TERMINATED</option>
-                          </select>
-                     </th>
-                     <th>Action</th>
-                  </thead>
-                  <tbody data-ng-init="getEmployee()">
-                     <tr ng-repeat="employee in employee_data">
-                        <td>{{employee.fullname}}</td>
-                        <td>{{employee.position}}</td>
-                        <td>{{employee.department}}</td>
-                        <td>{{employee.startDate}}</td>
-                        <td>{{employee.endDate}}</td>
-                        <td>{{employee.remarks}}</td>
-                        <td>{{employee.status}}</td>
-                        <td><a href="" class="btn btn-outline-success" style="width: 100px;" ng-click="editEmployee(employee)">Edit</a>
-                        <a href="" style="display: {{employee.leave_btn}}; width: 100px;" class="btn btn-outline-warning mt-2" ng-click="leaveEmployee(employee)">leave</a>
-                        <a href="" style="display: {{employee.delete_btn}}; background-color: none; width: 100px;" class="btn btn-outline-primary mt-2" ng-click="deleteEmployee(employee)">Delete</a>
-                        <!-- GENERATE COE -->
-                        <a href="generateCOE.php?id={{employee.employee_id}}" style="width: 100px;" target="_blank" class="btn btn-outline-info mt-2">COE</a></td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
          </div>
-      </div>
       </main>
          <div class="modal fade" id="editEmployee" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-md" role="document">

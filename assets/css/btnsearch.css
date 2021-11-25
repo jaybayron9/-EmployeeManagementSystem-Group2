@@ -1,0 +1,80 @@
+.formtwo {
+    display: flex;
+    justify-content: right;
+    
+}
+.searchbox {
+    width: 250px;
+    padding: 6px;
+    font-size:15px;
+    border-radius: 18px;
+}
+
+.addemp {
+        position: absolute;
+        background-color: #198754;
+        color: white;
+        padding: 6px;
+        font-size:18px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 6px 10px 0 rgba(0.3, 0.3, 0.3, 0.3);
+        border-radius: 5px;
+}
+.addemp:hover{
+    background-color: #239560;
+        color: white;
+}
+
+.btnUpdate,
+.btnleave,
+.btncoe,
+.btnWrapper,
+.btnAction,
+.btnAction.btnUpdate {
+    display: inline-block;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 2px;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.btnUpdate {
+    background: #FEC001;
+}
+
+.btnDelete {
+    background: #DE3E44;
+}
+
+.btnleave {
+    background: #239560;
+}
+
+.btncoe {
+    background: #5d97f3
+
+}
+
+.btnUpdate:hover {
+    background: #ffdb6b;
+}
+
+.btnDelete:hover {
+    background: #ee6066;
+}
+
+.btnleave:hover {
+    background: #2cc87f
+}
+
+.btncoe:hover {
+    background: #89b7ff
+}
