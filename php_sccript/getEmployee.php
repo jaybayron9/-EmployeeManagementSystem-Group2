@@ -29,6 +29,7 @@ $fullname = $row['employee_fname']." ".$row['employee_lname'];
 
 }else{
 	$data[] = array("fullname"=>"No Data", "position"=>"No Data", "department"=>"No Data", "startDate"=>"No Data", "endDate"=>"No Data", "remarks"=>"No Data", "status"=>"No Data", "leave_btn"=>"No Data", "employee_id"=>"No Data", "fname"=>"No Data", "lname"=>"No Data", "department_id"=>"No Data");
+	
 
 }
 

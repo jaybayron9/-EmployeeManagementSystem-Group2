@@ -34,11 +34,11 @@ $fullname = $row['employee_fname']. " ".$row['employee_lname'];
 	</center>
 		<br><br><br>
 	<center>
-		This is to certify that <b><?php echo $fullname; ?></b> is an employee of this company.
+		This is to certify that <b><?php echo $fullname; ?></b> was an employee of this company.
 		<br>
 		and held the position of <b><?php echo $row['employee_position']; ?></b> under <br><?php echo $row['department_name']; ?><!--Dito-->from <?php echo date("jS F, Y", strtotime($row['employee_startDate'])); ?><?php
 		if($row['employee_status'] == "EMPLOYED"){
-		echo "(Still Employed)";
+		
 		}else{
 		echo "to &nbsp", date("jS F, Y", strtotime($row['employee_endDate']));
 		} ?>

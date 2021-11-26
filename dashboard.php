@@ -88,18 +88,16 @@
                            <td>{{employee.status}}</td>
                            <td>
                               <center>
-                                 <a href="" class="btnAction btnUpdate" style="width: 100px;" ng-click="editEmployee(employee)">Edit&nbsp;&#9998;</a>
+                                 <a href="" class="btnAction btn-Primary" style="width: 100px;" ng-click="editEmployee(employee)">Edit &nbsp;&#9998;</a>
                               </center>
-                              <center>
-                                 <a href="" class="btnAction btnleave" style="display: {{employee.leave_btn}}; width: 100px;"  ng-click="leaveEmployee(employee)">Leave&nbsp;&#10149;</a>
-                              </center>
+                             
 
                                <!-- GENERATE COE -->
                               <center>
-                                 <a href="generateCOE.php?id={{employee.employee_id}}" class="btnAction btncoe" style="width: 100px;" target="_blank" >C.O.E&nbsp;&#9993;</a>
+                                 <a href="generateCOE.php?id={{employee.employee_id}}" class="btnAction btn-primary" style="width: 100px;" target="_blank" >C.O.E &nbsp;&#9993;</a>
                               </center>
                               <center>
-                                 <a href="" class="btnAction btnDelete" style="display: {{employee.delete_btn}}; background-color: none; width: 100px;" ng-click="deleteEmployee(employee)">Del&nbsp;&#10006;</a>
+                                 <a href="" class="btnAction btnDelete" style="display: {{employee.delete_btn}}; background-color: none; width: 100px;" ng-click="deleteEmployee(employee)">Delete &nbsp;&#10006;</a>
                               </center>
                            </td>
                         </tr>
@@ -134,6 +132,9 @@
                         <label>Date Started:</label>
                         <input type="text" onfocus="(this.type='date')" name="startDate" class="form-control my-form-modal" placeholder="Employee Start Date" value="{{employee_fetch.startDate}}">
                         <div class="modal-footer">
+                        <center>
+                        <a href="" class="btnAction btn-Primary" style="display: {{employee.leave_btn}}; width: 100px;"  ng-click="leaveEmployee(employee)">Leave &nbsp;&#10149;</a>
+                        </center> 
                            <button type="button" class="btn btn-secondary" ng-click="closeEditEmp()">Close</button>
                            <button type="submit" class="btn btn-primary" name="update">Save changes</button>
                         </div>

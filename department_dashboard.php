@@ -84,9 +84,9 @@
         <form method="POST" ng-submit="addDepartment(department_form)">
 
               
-              <input type="text" ng-model="department_form.department_name" class="form-control my-form" placeholder="Department Name">
+              <input type="text" ng-model="department_form.department_name" class="form-control my-form" placeholder="Department Name"required>
        
-              <input type="text" ng-model="department_form.department_description" class="form-control my-form" placeholder="Department Description">
+              <input type="text" ng-model="department_form.department_description" class="form-control my-form" placeholder="Department Description"required>
 
                <button type="submit" class="btn btn-success my-btn">Add Department</button>
      
@@ -99,9 +99,7 @@
           
 
         <!--Table-->
-          <h3>{{department_title}}</h3><p><a href="" ng-click="getArchiveDepartment()" style="display: {{archive_link}}">Click here to see Archive Department</a>
-<div class="col-10 mx-auto" >
-            <a href="" ng-click="getDepartment()" style="display: {{active_link}}">Click here to see Active Department</a></p>
+         
           <table class="table table-bordered">
         <thead class="table-dark text-center">
         <th>Department</th>
@@ -115,14 +113,10 @@
         <td>{{department_inf.department}}</td>
         <td>{{department_inf.description}}</td>
          <td>
-
-          <a href="" class="btn btn-info" ng-click="editDepartment(department_inf)" style="display: {{department_inf.edit}} width: 100px; height: 35px;">Edit</a>
-
-          <a href="" class="btn btn-secondary;" style="display: {{department_inf.archive}} width: 100px; height: 35px; background-color: pink;" ng-click="archiveDepartment(department_inf)">Archive</a>
-
-          <a href="" class="btn btn-warning" style="display: {{department_inf.active}}" ng-click="activateDepartment(department_inf)">Re-activate</a>
-
-        </td>
+          
+          <a href="" class="btn btn-primary" ng-click="editDepartment(department_inf)" style="display: {{department_inf.edit}} width: 100px; height: 35px;">Edit &nbsp;&#9998;</a>   
+          <a href="" class="btn btn-Delete" ng-click="deleteDepartment(department_inf)" style="display: {{department.delete_btn}}; background-color: #A52A2A; width: 100px: height: 35px ;" >Delete &nbsp;&#10006;</a>
+      </td>
 
       </tr>
     </div>

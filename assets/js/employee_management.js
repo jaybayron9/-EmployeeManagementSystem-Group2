@@ -24,12 +24,25 @@ data: employee_form
 location.reload();
 });
 
-}else{
-alert("Cancelled Adding Employee!");	
-}
 
 }
 
+}
+
+$scope.deleteDepartment = function(department){
+	var delete_warning = confirm("Are you sure you want to delete this department?");
+
+	if(delete_warning) {
+		$http({
+			method: 'post',
+			url: 'php_sccript/deleteDepartment.php',
+			data: department
+		}).then(function(){
+			location.reload();
+		});
+	}
+
+}
 
 $scope.deleteEmployee = function(employee){
 	var delete_warning = confirm("Are you sure you want to delete this employee?");
@@ -44,8 +57,7 @@ $scope.deleteEmployee = function(employee){
 	}).then(function(){
 	location.reload();
 	});
-	}else{
-	alert("Cancelled!");
+
 	}
 
 }
@@ -80,11 +92,12 @@ $scope.addDepartment = function(department_form){
 			alert("Successfully Added");
 			department_form.department_name = "";
 			department_form.department_description = "";
-			$scope.getDepartment();		
+			$scope.getDepartment();	
+				
 		});
 
 	}else{
-			alert("Cancelled!");
+			
 			department_form.department_name = "";
 			department_form.department_description = "";
 
@@ -180,8 +193,7 @@ $scope.endEmployee = function(employee_fe){
 
 		});
 
-	}else{
-alert("cancelled!");
+
 	}
 }
 
@@ -243,8 +255,7 @@ $scope.updateDepartment = function(department_fetch){
 
 		});
 
-	}else{
-		alert("Cancelled!");
+
 	}
 }
 
@@ -263,43 +274,6 @@ $scope.closeEditDep = function(){
 	$("#editDepartment").modal("hide");
 }
 
-
-$scope.archiveDepartment = function(department_inf){
-	var archive_warning = confirm("Are you sure you want to archive this department?");
-	if(archive_warning){
-		$http({
-			method: 'post',
-			url: 'php_sccript/archiveDepartment.php',
-			data: department_inf
-
-		}).then(function(){
-			alert("Successfully Archived!");
-			location.reload();
-
-		});
-	}else{
-		alert("Cancelled!");
-	}
-
-}
-
-$scope.activateDepartment = function(department_inf){
-	var archive_warning = confirm("Are you sure you want to re-activate this department?");
-	if(archive_warning){
-		$http({
-			method: 'post',
-			url: 'php_sccript/activateDepartment.php',
-			data: department_inf
-
-		}).then(function(){
-			alert("Successfully Re-activated!");
-			location.reload();
-		});
-	}else{
-		alert("Cancelled!");
-	}
-
-}
 
 
 
