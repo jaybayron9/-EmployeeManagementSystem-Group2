@@ -161,7 +161,12 @@ $scope.editEmployee = function(employee){
 
 
 }
-
+$scope.leaveEmployee = function(employee){
+	$("#retractEmployee").modal("show");
+		var temp_emp = {};
+  angular.copy(employee, temp_emp);
+	$scope.employee_fe = temp_emp;
+}
 
 $scope.closeEditEmp = function(){
 	$("#editEmployee").modal("hide");
@@ -170,12 +175,7 @@ $scope.closeEditEmp = function(){
 
 
 
-$scope.leaveEmployee = function(employee){
-	$("#retractEmployee").modal("show");
-		var temp_emp = {};
-  angular.copy(employee, temp_emp);
-	$scope.employee_fe = temp_emp;
-}
+
 
 
 $scope.endEmployee = function(employee_fe){
