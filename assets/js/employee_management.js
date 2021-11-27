@@ -89,7 +89,7 @@ $scope.addDepartment = function(department_form){
 		url: 'php_sccript/add_department.php',
 		data: department_form
 		}).then(function(){
-			alert("Successfully Added");
+			//alert("Successfully Added");
 			department_form.department_name = "";
 			department_form.department_description = "";
 			$scope.getDepartment();	
@@ -161,7 +161,12 @@ $scope.editEmployee = function(employee){
 
 
 }
-
+$scope.leaveEmployee = function(employee){
+	$("#retractEmployee").modal("show");
+		var temp_emp = {};
+  angular.copy(employee, temp_emp);
+	$scope.employee_fe = temp_emp;
+}
 
 $scope.closeEditEmp = function(){
 	$("#editEmployee").modal("hide");
@@ -170,12 +175,7 @@ $scope.closeEditEmp = function(){
 
 
 
-$scope.leaveEmployee = function(employee){
-	$("#retractEmployee").modal("show");
-		var temp_emp = {};
-  angular.copy(employee, temp_emp);
-	$scope.employee_fe = temp_emp;
-}
+
 
 
 $scope.endEmployee = function(employee_fe){
