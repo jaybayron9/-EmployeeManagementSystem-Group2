@@ -115,7 +115,7 @@
          <td>
           
           <a href="" class="btn btn-primary" ng-click="editDepartment(department_inf)" style="display: {{department_inf.edit}} width: 100px; height: 35px;">Edit &nbsp;&#9998;</a>   
-          <a href="" class="btn btn-Delete" ng-click="deleteDepartment(department_inf)" style="display: {{department.delete_btn}}; background-color: #A52A2A; width: 100px: height: 35px ;" >Delete &nbsp;&#10006;</a>
+          <a href="" class="btn btn-Delete" ng-click="deleteDepartment(department_inf)" style="display: {{department_inf.delete_btn}}; background-color: #A52A2A; width: 100px: height: 35px ;" >Delete &nbsp;&#10006;</a>
       </td>
 
       </tr>

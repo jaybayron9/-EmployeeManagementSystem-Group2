@@ -80,6 +80,7 @@ INSERT INTO `department_tbl` (`department_id`, `department_name`, `department_de
 CREATE TABLE `employee_tbl` (
   `employee_id` int(11) NOT NULL,
   `employee_fname` text NOT NULL,
+  `employee_mname` text NOT NULL,
   `employee_lname` text NOT NULL,
   `department_id` int(11) NOT NULL,
   `employee_status` text NOT NULL DEFAULT 'EMPLOYED',
