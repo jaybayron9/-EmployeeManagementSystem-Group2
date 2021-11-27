@@ -90,7 +90,9 @@
                               <center>
                                  <a href="" class="btnAction btn-Primary" style="width: 100px;" ng-click="editEmployee(employee)">Edit &nbsp;&#9998;</a>
                               </center>
-                             
+                              <center>
+                               <a href="" class="btnAction btn-Primary" style="display: {{employee.leave_btn}}; width: 100px;"  ng-click="leaveEmployee(employee)">Leave &nbsp;&#10149;</a>
+                              </center> 
 
                                <!-- GENERATE COE -->
                               <center>
@@ -117,6 +119,8 @@
                      <form method="POST" action="php_sccript/updateEmployee.php"> 
                         <label>First Name:</label>
                         <input type="text" name="fname" value="{{employee_fetch.fname}}" class="form-control my-form-modal" placeholder="Employee First Name" required>
+                        <label>Middle Name:</label>
+                        <input type="text" name="mname" value="{{employee_fetch.mname}}" class="form-control my-form-modal" placeholder="Employee Middle Name" required>
                         <label>Last Name:</label>
                         <input type="hidden" value="{{employee_fetch.employee_id}}" name="eid">
                         <input type="text" name="lname" value="{{employee_fetch.lname}}" class="form-control my-form-modal" placeholder="Employee Last Name" required>
@@ -132,9 +136,7 @@
                         <label>Date Started:</label>
                         <input type="text" onfocus="(this.type='date')" name="startDate" class="form-control my-form-modal" placeholder="Employee Start Date" value="{{employee_fetch.startDate}}">
                         <div class="modal-footer">
-                        <center>
-                        <a href="" class="btnAction btn-Primary" style="display: {{employee.leave_btn}}; width: 100px;"  ng-click="leaveEmployee(employee)">Leave &nbsp;&#10149;</a>
-                        </center> 
+                        
                            <button type="button" class="btn btn-secondary" ng-click="closeEditEmp()">Close</button>
                            <button type="submit" class="btn btn-primary" name="update">Save changes</button>
                         </div>
