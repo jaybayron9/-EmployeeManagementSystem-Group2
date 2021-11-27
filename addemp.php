@@ -56,7 +56,6 @@
                   <h3 class="my-header">Add Employee</h3>
                   <form method="POST" ng-submit="addEmployee(employee_form)">
                     	<input type="text" ng-model="employee_form.fname" class="form-control my-form" placeholder="First Name" required>
-                     <input type="text" ng-model="employee_form.mname" class="form-control my-form" placeholder="Middle Name" required>
                     	<input type="text" ng-model="employee_form.lname" class="form-control my-form" placeholder="Last Name" required>
                      <input type="text" ng-model="employee_form.position" class="form-control my-form" placeholder="Position" required>
                      <select class="form-control my-form" name="" data-ng-init="getDepartment()" ng-model="employee_form.department" required>
@@ -64,13 +63,8 @@
                        <option ng-repeat="department in department_data" value="{{department.department_id}}">{{department.department}}</option>
                      </select>
                      <input type="text" onfocus="(this.type='date')" name="" class="form-control my-form" placeholder="Start Date" ng-model="employee_form.startDate">
-                     
-                     <button type="submit"  class="btn btn-success my-btn" href="dashboard.php">Add Employee</button>
-                     
-                    
-                 
-                  </form>
-                     
+                     <button type="submit" class="btn btn-success my-btn">Add Employee</button>
+                 </form>
                </div>
             </div>
          </div>

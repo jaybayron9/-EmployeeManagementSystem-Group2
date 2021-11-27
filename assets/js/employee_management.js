@@ -89,7 +89,7 @@ $scope.addDepartment = function(department_form){
 		url: 'php_sccript/add_department.php',
 		data: department_form
 		}).then(function(){
-			
+			alert("Successfully Added");
 			department_form.department_name = "";
 			department_form.department_description = "";
 			$scope.getDepartment();	
@@ -132,6 +132,25 @@ $http({
 }
 
 
+$scope.getArchiveDepartment = function(){
+	$scope.department_title = "Archive Department";
+	$scope.archive_link = "none";
+	$scope.active_link = "block";
+
+$http({
+	method: 'get',
+	url: 'php_sccript/getArchiveDepartment.php'
+
+}).then(function(data){
+
+	$scope.department_data = data.data;
+
+});
+
+}
+
+
+
 $scope.editEmployee = function(employee){
 	
 	$("#editEmployee").modal("show");
@@ -142,12 +161,7 @@ $scope.editEmployee = function(employee){
 
 
 }
-$scope.leaveEmployee = function(employee){
-	$("#retractEmployee").modal("show");
-		var temp_emp = {};
-  angular.copy(employee, temp_emp);
-	$scope.employee_fe = temp_emp;
-}
+
 
 $scope.closeEditEmp = function(){
 	$("#editEmployee").modal("hide");
@@ -156,7 +170,12 @@ $scope.closeEditEmp = function(){
 
 
 
-
+$scope.leaveEmployee = function(employee){
+	$("#retractEmployee").modal("show");
+		var temp_emp = {};
+  angular.copy(employee, temp_emp);
+	$scope.employee_fe = temp_emp;
+}
 
 
 $scope.endEmployee = function(employee_fe){

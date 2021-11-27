@@ -9,7 +9,7 @@ if(isset($_GET['id'])){
 
 $fetch_employee = mysqli_query($web_db, "SELECT * from employee_tbl INNER JOIN department_tbl on department_tbl.department_id = employee_tbl.department_id where employee_id  = '$id'");
 $row = mysqli_fetch_array($fetch_employee);
-$fullname = $row['employee_fname']. " ".$row['employee_lname']." ".$row['employee_mname'];
+$fullname = $row['employee_fname']. " ".$row['employee_lname'];
 
 ?>
 
