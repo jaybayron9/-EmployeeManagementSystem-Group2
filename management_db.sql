@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2021 at 07:07 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 7.3.29
+-- Generation Time: Nov 27, 2021 at 06:59 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `management_db`
 --
-CREATE DATABASE IF NOT EXISTS `management_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `management_db`;
 
 -- --------------------------------------------------------
 
@@ -68,8 +66,7 @@ CREATE TABLE `department_tbl` (
 INSERT INTO `department_tbl` (`department_id`, `department_name`, `department_description`, `department_status`, `date_time_created`, `date_time_updated`, `remarks`) VALUES
 (1, 'Finance', 'Finance Department', 'ACTIVE', '2021-11-25', '2021-11-25', ''),
 (2, 'Infomation Technology', 'IT Department', 'ACTIVE', '2021-11-25', '2021-11-25', ''),
-(3, 'Human Resources', 'HR Department', 'ACTIVE', '2021-11-25', '2021-11-25', ''),
-(4, 'Reservation', 'Service Reservation', 'ARCHIVE', '2021-11-25', '2021-11-25', '');
+(3, 'Human Resources', 'HR Department', 'ACTIVE', '2021-11-25', '2021-11-25', '');
 
 -- --------------------------------------------------------
 
@@ -92,6 +89,17 @@ CREATE TABLE `employee_tbl` (
   `date_time_updated` date NOT NULL DEFAULT current_timestamp(),
   `remarks` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `employee_tbl`
+--
+
+INSERT INTO `employee_tbl` (`employee_id`, `employee_fname`, `employee_mname`, `employee_lname`, `department_id`, `employee_status`, `employee_startDate`, `employee_endDate`, `employee_position`, `employee_remarks`, `date_time_created`, `date_time_updated`, `remarks`) VALUES
+(1, 'Jay', 'D.', 'Bayron', 2, 'EMPLOYED', '2021-11-11', '0000-00-00', 'IT', '', '2021-11-27', '2021-11-27', ''),
+(2, 'Christian Mar', 'B.', 'Alimpuyo', 1, 'EMPLOYED', '2021-11-28', '0000-00-00', 'Finance', '', '2021-11-27', '2021-11-27', ''),
+(3, 'Stephanie', 'A.', 'De Jesus', 3, 'EMPLOYED', '2021-11-25', '0000-00-00', 'Hr', '', '2021-11-27', '2021-11-27', ''),
+(4, 'Bernhard', 'O.', 'Reganit', 2, 'EMPLOYED', '2021-11-18', '0000-00-00', 'IT', '', '2021-11-27', '2021-11-27', ''),
+(5, 'John Cedric', 'D.', 'Samonte', 2, 'EMPLOYED', '2021-11-25', '0000-00-00', 'IT', '', '2021-11-27', '2021-11-27', '');
 
 --
 -- Indexes for dumped tables
@@ -135,7 +143,7 @@ ALTER TABLE `department_tbl`
 -- AUTO_INCREMENT for table `employee_tbl`
 --
 ALTER TABLE `employee_tbl`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

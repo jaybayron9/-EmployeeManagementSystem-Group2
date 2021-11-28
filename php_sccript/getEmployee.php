@@ -21,7 +21,7 @@ $leave_btn = "block";
 }
 
 
-$fullname = $row['employee_fname']." ".$row['employee_lname']." ".$row['employee_mname'];
+$fullname = $row['employee_fname']." ".$row['employee_mname']." ".$row['employee_lname'];
 
 	$data[] = array("fullname"=>$fullname, "position"=>$row['employee_position'], "department"=>$row['department_name'], "startDate"=>$row['employee_startDate'], "endDate"=>$row['employee_endDate'], "remarks"=>$row['employee_remarks'], "status"=>$row['employee_status'], "leave_btn"=>$leave_btn, "employee_id"=>$row['employee_id'], "fname"=>$row['employee_fname'], "mname"=>$row['employee_mname'], "lname"=>$row['employee_lname'], "department_id"=>$row['department_id']);
 }
