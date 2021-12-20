@@ -36,7 +36,7 @@ $fullname = $row['employee_fname']. " ".$row['employee_lname']." ".$row['employe
 	<center>
 		This is to certify that <b><?php echo $fullname; ?></b> was an employee of this company.
 		<br>
-		and held the position of <b><?php echo $row['employee_position']; ?></b> under <br><?php echo $row['department_name']; ?><!--Dito-->from <?php echo date("jS F, Y", strtotime($row['employee_startDate'])); ?><?php
+		and held the position of <b><?php echo $row['employee_position']; ?></b> under <br><?php echo $row['department_name']; ?> from <?php echo date("jS F, Y", strtotime($row['employee_startDate'])); ?><?php
 		if($row['employee_status'] == "EMPLOYED"){
 		
 		}else{
